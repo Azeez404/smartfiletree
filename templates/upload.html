@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Document - SmartFileTree</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="upload-container">
+        <h2>📤 Upload New Document</h2>
+
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <label for="filename">📄 Document Title:</label>
+            <input type="text" id="filename" name="filename" placeholder="example.pdf" required>
+
+            <label for="file">📁 Choose File:</label>
+            <input type="file" id="file" name="file" required>
+
+            <button type="submit">Upload</button>
+        </form>
+
+        <a href="{{ url_for('dashboard') }}" class="back-link">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

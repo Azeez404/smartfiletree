@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>📂 Welcome to SmartFileTree</h1>
+        <p>Select what you'd like to do:</p>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <div class="button-group">
+            <a href="{{ url_for('upload_page') }}" class="btn">📤 Upload Document</a>
+            <a href="{{ url_for('view_page') }}" class="btn">📁 View Files</a>
+            <a href="{{ url_for('search_page') }}" class="btn">🔍 Search</a>
+            <a href="{{ url_for('logout') }}" class="btn logout-btn">🚪 Logout</a>
+        </div>
+    </div>
+</body>
+</html>

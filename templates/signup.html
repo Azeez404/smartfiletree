@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - SmartFileTree</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .signup-container {
+      width: 400px;
+      margin: 80px auto;
+      padding: 30px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    .signup-container h2 {
+      color: #4caf50;
+      margin-bottom: 20px;
+    }
+
+    .signup-container input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #2e2e2e;
+      color: #fff;
+    }
+
+    .signup-container button {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      width: 100%;
+      border-radius: 5px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .signup-container button:hover {
+      background-color: #0b7dda;
+    }
+
+    .signup-container a {
+      color: #aaa;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .signup-container a:hover {
+      text-decoration: underline;
+    }
+
+    .flash-message {
+      margin-top: 15px;
+      color: #7cfc00;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+
+    <form method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+
+    {% if message %}
+      <p class="flash-message">{{ message }}</p>
+    {% endif %}
+
+    <a href="{{ url_for('home_page') }}">← Back to Home</a>
+  </div>
+</body>
+</html>

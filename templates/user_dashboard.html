@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard - SmartFileTree</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>👋 Welcome, {{ session['username'] }}</h2>
+        <p>Choose what you'd like to do:</p>
+
+        <!-- ✅ Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- ✅ Navigation Buttons -->
+        <a href="{{ url_for('upload_page') }}"><button>📤 Upload Document</button></a>
+        <a href="{{ url_for('view_page') }}"><button>📂 View All Files</button></a>
+        <a href="{{ url_for('search_page') }}"><button>🔍 Search</button></a>
+        <a href="{{ url_for('logout') }}"><button>🚪 Logout</button></a>
+
+        <!-- ✅ Delete Account -->
+        <form action="{{ url_for('delete_account') }}" method="POST" style="margin-top: 20px;" onsubmit="return confirm('Are you sure you want to delete your account?');">
+            <button type="submit" style="background-color: crimson; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 16px; cursor: pointer;">
+                ❌ Delete My Account
+            </button>
+        </form>
+    </div>
+</body>
+</html>
+

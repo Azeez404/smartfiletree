@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Files - SmartFileTree</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>🔍 Search Files</h2>
+        <form method="POST">
+            <label for="keyword">Enter keyword:</label>
+            <input type="text" id="keyword" name="keyword" required value="{{ keyword }}">
+            <button type="submit">Search</button>
+        </form>
+
+        {% if results %}
+            <ul>
+                {% for file in results %}
+                    <li>{{ file }}</li>
+                {% endfor %}
+            </ul>
+        {% elif keyword %}
+            <p>No files found for "{{ keyword }}" 😕</p>
+        {% endif %}
+
+        <div class="nav">
+            <a class="btn" href="{{ url_for('dashboard') }}">⬅️ Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

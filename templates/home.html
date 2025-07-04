@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmartFileTree - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>📂 Welcome to SmartFileTree</h2>
+        <p>Your secure document storage & management system.</p>
+        <div class="nav">
+            <a href="{{ url_for('login') }}" class="btn">Login</a>
+            <a href="{{ url_for('signup') }}" class="btn">Signup</a>
+        </div>
+    </div>
+</body>
+</html>
